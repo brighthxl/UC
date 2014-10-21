@@ -14,6 +14,7 @@
      -o-transition: $p $t $f;
         transition: $p $t $f;
 }
+
 @mixin opacity($n:1){
 	opacity:$n;
 	filter:alpha(opacity=$n*100);
