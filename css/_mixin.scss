@@ -1,0 +1,51 @@
+@function bgurl($img){@return '../img/'+ $img + '?123';}
+@mixin pngbg($file,$position:0 0,$repeat:repeat,$absoluteFile:'eastnx'){
+	@if($absoluteFile == 'eastnx'){
+		background:url($file) $repeat $position;
+		*background:url(about:blank);*filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=noscale, src="#{$file}");
+	}@else{
+		background:url('/fan3.0/img/'+$file) $repeat $position;
+		*background:url(about:blank);*filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=noscale, src="#{$absoluteFile}");
+	}
+}
+@mixin tran($p:all,$t:0.5s,$f:ease){
+-webkit-transition: $p $t $f;
+   -moz-transition: $p $t $f;
+     -o-transition: $p $t $f;
+        transition: $p $t $f;
+}
+@mixin opacity($n:1){
+	opacity:$n;
+	filter:alpha(opacity=$n*100);
+}
+@mixin radius($lt,$rt:'eastnx',$rb:'eastnx',$lb:'eastnx'){
+	@if($rt == 'eastnx'){$rt : $lt}
+	@if($rb == 'eastnx'){$rb : $lt}
+	@if($lb == 'eastnx'){$lb : $lt}
+	-moz-border-radius:$lt $rt $rb $lb;
+	-webkit-border-radius:$lt $rt $rb $lb;
+	border-radius:$lt $rt $rb $lb;
+}
+@mixin setColor($class, $color){
+	.#{$class},.#{$class} a{
+		color:$color;
+	}
+	a.#{$class}:hover,.#{$class} a:hover{
+		color:#ed6d34;
+	}
+}
+@mixin setFont($size){
+	.f#{$size}px{font-size:#{$size}px}
+}
+
+$color:#313131;
+$hover:#E74B52;
+$gray1:#959595;
+$gray2:#d5d5d5;
+$gray3:#e3e3e3;
+
+$red:#e74b52;
+$red2:#cc4957;
+$blue:#65bae7;
+$blue2 :#1a3047;
+
